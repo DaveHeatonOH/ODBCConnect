@@ -22,6 +22,11 @@ View(df)
 
 summary(df)
 
+
+summary(df$trip_distance)
+summary(df$fare_amount)
+
+
 #Plot
 ggplot(df, aes(x = trip_distance, y = fare_amount)) +
   geom_point(alpha = 0.5) + 
@@ -29,13 +34,5 @@ ggplot(df, aes(x = trip_distance, y = fare_amount)) +
   xlab("Distance") +
   ylab("Fare")
 
-ggplot(df, aes(x = trip_distance, y = log10(fare_amount))) +
-  geom_point(alpha = 0.5) + 
-  xlab("Distance") +
-  ylab("Fare")
-
 #Check linear regression
 summary(lm(df$fare_amount ~ df$trip_distance))
-
-summary(df$trip_distance)
-summary(df$fare_amount)
